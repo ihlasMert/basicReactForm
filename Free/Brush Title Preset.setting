@@ -1,0 +1,200 @@
+{
+	Tools = ordered() {
+		Merge1_1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "TimeSpeed1",
+					Source = "Output",
+				},
+				ApplyMode = Input { Value = FuID { "Difference" }, },
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1760, 610.5 } },
+		},
+		PipeRouter1 = PipeRouter {
+			ViewInfo = PipeRouterInfo { Pos = { 1650, 610.5 } },
+		},
+		Note5 = Note {
+			Inputs = {
+				Comments = Input { Value = "Ad Brush title from the Free Title pack at:\nhttps://www.meinvideostudio.de/brush-titles-free-asset-pack/\n\n", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 1485, 577.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 196, 40.4546 }
+			},
+		},
+		Background1_1 = Background {
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Merge1_1",
+					Source = "Output",
+				},
+				MaskChannel = Input { Value = 5, },
+				GlobalOut = Input { Value = 124, },
+				Width = Input { Value = 1280, },
+				Height = Input { Value = 720, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 1, },
+				TopLeftBlue = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1925, 610.5 } },
+		},
+		Note8 = Note {
+			Inputs = {
+				Comments = Input { Value = "Change Brush Color here", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 1870, 643.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 196, 36.3711 }
+			},
+		},
+		TimeSpeed1 = TimeSpeed {
+			Inputs = {
+				Speed = Input { Value = 4.41, },
+				Delay = Input { Value = 373.2, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1660, 682.909 } },
+		},
+		Text1_1 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 124, },
+				Width = Input { Value = 1280, },
+				Height = Input { Value = 720, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Center = Input { Value = { 0.592841163310962, 0.663021868787276 }, },
+				Red1 = Input { Value = 0, },
+				Green1 = Input { Value = 0, },
+				Blue1 = Input { Value = 0, },
+				StyledText = Input { Value = "free Download", },
+				Font = Input { Value = "Bjorn Rider Alternates", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.2126, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ManualFontKerningPlacement = Input {
+					Value = StyledText {
+						Array = {
+						},
+						Value = ""
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 2090, 544.5 } },
+		},
+		Note7 = Note {
+			Inputs = {
+				Comments = Input { Value = "Change your Text here", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 2090, 478.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 196, 36.4142 }
+			},
+		},
+		Note6 = Note {
+			Inputs = {
+				Comments = Input { Value = "Set Timedelay so that the last Frame is blank (without any Brushes", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 1595, 709.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 196, 181.364 }
+			},
+		},
+		Merge2_1 = Merge {
+			CtrlWZoom = false,
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Merge1_1",
+					Source = "Output",
+				},
+				MaskChannel = Input { Value = 5, },
+				Background = Input {
+					SourceOp = "Background1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Merge3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 2200, 610.5 } },
+		},
+		Text2 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 124, },
+				Width = Input { Value = 1280, },
+				Height = Input { Value = 720, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Center = Input { Value = { 0.599552572706935, 0.259443339960239 }, },
+				Red1 = Input { Value = 0, },
+				Green1 = Input { Value = 0, },
+				Blue1 = Input { Value = 0, },
+				StyledText = Input { Value = "in Description", },
+				Font = Input { Value = "Bjorn Rider Alternates", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.2323, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ManualFontKerningPlacement = Input {
+					Value = StyledText {
+						Array = {
+						},
+						Value = ""
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 2200, 511.5 } },
+		},
+		Merge3 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Text1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Text2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 2200, 544.5 } },
+		},
+		Note9 = Note {
+			Inputs = {
+				Comments = Input { Value = "Connect media Out\n", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 2310, 610.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 196, 39.9423 }
+			},
+		}
+	},
+	ActiveTool = "Merge2_1"
+}
